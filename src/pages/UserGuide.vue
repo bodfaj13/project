@@ -43,7 +43,7 @@ export default {
     spinnerShow (spinner) {
       setTimeout((spinner) => {
         this.spinner = false
-      }, 2000)
+      }, 3000)
     }
   },
   mounted: function () {

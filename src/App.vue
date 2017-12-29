@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <md-app class="md-scrollbar" md-waterfall md-mode="fixed">
-      <md-app-toolbar class="md-primary animated fadeInRight" md-elevation="0">
+      <md-app-toolbar class="md-primary animated fadeInTop" md-elevation="0">
         <md-button class="md-icon-button pointer" @click="toggleMenu" v-if="!menuVisible">
           <md-icon>menu</md-icon>
         </md-button>
@@ -35,11 +35,24 @@
           </router-link>
         </md-list>
       </md-app-drawer>
-      <md-app-content style="padding: 0px; margin: 0px; height; 600px;">
+      <md-app-content class="appContent">
         <router-view></router-view>
-        <md-button class="md-fab md-fab-bottom-right md-accent animated bounceIn">
-          <md-icon>person</md-icon>
-        </md-button>
+         <md-speed-dial class="md-bottom-right" md-direction="top" md-event="click">
+            <md-speed-dial-target class="md-primary">
+              <md-icon class="md-morph-initial">person</md-icon>
+              <md-icon class="md-morph-final">close</md-icon>
+            </md-speed-dial-target>
+
+            <md-speed-dial-content>
+              <md-button class="md-icon-button">
+              <md-icon>directions</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button">
+              <md-icon>streetview</md-icon>
+            </md-button>
+          </md-speed-dial-content>
+        </md-speed-dial>
       </md-app-content>
     </md-app>
   </div>
@@ -81,7 +94,11 @@ export default {
     overflow: auto;
     border: 2px solid rgba(#000, .12);
   }
-  
+  .appContent{
+    padding: 0px; 
+    margin: 0px;
+     height: 600px;
+  }
    // Demo purposes only
   .md-drawer {
     width: 230px;
